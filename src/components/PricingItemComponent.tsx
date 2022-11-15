@@ -14,7 +14,9 @@ export const PricingItemComponent = ({
 }) => {
   return (
     <Flex
+      pos="relative"
       w="30%"
+      minH={600}
       flexDir="column"
       borderWidth={1}
       borderColor={item.name === "Pro" ? "#000" : "#fff"}
@@ -49,18 +51,26 @@ export const PricingItemComponent = ({
             </Button>{" "}
           </>
         ) : (
-          <Text color="#000" fontWeight="bold" fontSize={30}>
+          <Text
+            color="#000"
+            fontWeight="bold"
+            fontSize={23}
+            w={150}
+            textAlign="center"
+          >
             Usage-based cost
           </Text>
         )}
       </Flex>
 
-      {[1, 2, 3, 4, 5, 6].map((item, i) => (
-        <Text color="#000" fontWeight={"bold"} fontSize={15} mb={2}>
-          <span style={{ color: "#2590EB" }}>Unlimited</span> Background Removal
-          HD
-        </Text>
-      ))}
+      <Flex flexDir="column" pos="absolute" bottom={5}>
+        {[1, 2, 3, 4, 5, 6].map((item, i) => (
+          <Text color="#000" fontWeight={"bold"} fontSize={15} mb={2}>
+            <span style={{ color: "#2590EB" }}>Unlimited</span> Background
+            Removal HD
+          </Text>
+        ))}
+      </Flex>
     </Flex>
   );
 };

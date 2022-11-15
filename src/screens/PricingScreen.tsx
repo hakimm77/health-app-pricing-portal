@@ -1,4 +1,4 @@
-import { Flex, Text } from "@chakra-ui/react";
+import { Flex, Image, Text } from "@chakra-ui/react";
 import { useState } from "react";
 import { PricingItemComponent } from "../components/PricingItemComponent";
 
@@ -57,10 +57,37 @@ const PricingScreen = () => {
         w="60%"
         alignItems="center"
         justifyContent="space-between"
+        mb={20}
       >
         {pricingPlans.map((item, i) => (
           <PricingItemComponent item={item} selectedPlan={selectedPlan} />
         ))}
+      </Flex>
+
+      <Text color="#000" fontWeight="bold" mb={3}>
+        Available in
+      </Text>
+
+      <Flex
+        flexDir="row"
+        alignItems="center"
+        w="7%"
+        justifyContent="space-between"
+      >
+        <Flex flexDir="column" alignItems="center" justifyContent="center">
+          <Image src={require("../assets/apple-icon.png")} w={8} h={8} m={2} />
+          <Text color="#000">IOS</Text>
+        </Flex>
+
+        <Flex flexDir="column" alignItems="center" justifyContent="center">
+          <Image
+            src={require("../assets/android-icon.png")}
+            w={8}
+            h={8}
+            m={2}
+          />
+          <Text color="#000">Android</Text>
+        </Flex>
       </Flex>
     </Flex>
   );
