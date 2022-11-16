@@ -1,13 +1,13 @@
 import { Flex, Image, Text } from "@chakra-ui/react";
 import { useState } from "react";
 import { PricingItemComponent } from "../components/PricingItemComponent";
+import { isMobile } from "../helpers/isMobile";
 
 const PricingScreen = () => {
   const [selectedPlan, setSelectedPlan] = useState("Monthly");
   const [pricingPlans, setPricingPlans] = useState([
     { name: "Free", price: "0" },
     { name: "Pro", price: "9" },
-    { name: "API", price: false },
   ]);
 
   return (
@@ -53,8 +53,8 @@ const PricingScreen = () => {
       </Flex>
 
       <Flex
-        flexDir="row"
-        w="60%"
+        flexDir={isMobile ? "column-reverse" : "row"}
+        w={isMobile ? "90%" : "40%"}
         alignItems="center"
         justifyContent="space-between"
         mb={20}
@@ -71,10 +71,15 @@ const PricingScreen = () => {
       <Flex
         flexDir="row"
         alignItems="center"
-        w="7%"
-        justifyContent="space-between"
+        w={"100%"}
+        justifyContent="center"
       >
-        <Flex flexDir="column" alignItems="center" justifyContent="center">
+        <Flex
+          flexDir="column"
+          alignItems="center"
+          justifyContent="center"
+          mr={5}
+        >
           <Image src={require("../assets/apple-icon.png")} w={8} h={8} m={2} />
           <Text color="#000">IOS</Text>
         </Flex>

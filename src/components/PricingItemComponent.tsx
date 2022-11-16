@@ -1,4 +1,5 @@
 import { Button, Flex, Text } from "@chakra-ui/react";
+import { isMobile } from "../helpers/isMobile";
 
 interface PricingPlans {
   name: string;
@@ -15,7 +16,7 @@ export const PricingItemComponent = ({
   return (
     <Flex
       pos="relative"
-      w="30%"
+      w={isMobile ? "100%" : "45%"}
       minH={600}
       flexDir="column"
       borderWidth={1}
@@ -66,8 +67,8 @@ export const PricingItemComponent = ({
       <Flex flexDir="column" pos="absolute" bottom={5}>
         {[1, 2, 3, 4, 5, 6].map((item, i) => (
           <Text color="#000" fontWeight={"bold"} fontSize={15} mb={2}>
-            <span style={{ color: "#2590EB" }}>Unlimited</span> Background
-            Removal HD
+            <span style={{ color: "#2590EB" }}>Unlimited</span> Some Good
+            Feature
           </Text>
         ))}
       </Flex>
